@@ -1,9 +1,18 @@
 package training.java10;
 
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class Java10 {
   private static String name = "";
+
+  void lambdaVar() {
+    //var isEven = n -> n % 2 == 0;
+    //var isEmpty = String::isEmpty;
+    Predicate<Long> isEven = n -> n % 2 == 0;
+    var isOdd = isEven.negate();
+    System.out.println(isEven.test(5L));
+  }
 
   void varType() {
     var firstName = "Anton";
@@ -23,5 +32,6 @@ public class Java10 {
     map.entrySet().forEach(System.out::println);
     Java10 java10 = new Java10();
     java10.varType();
+    java10.lambdaVar();
   }
 }
