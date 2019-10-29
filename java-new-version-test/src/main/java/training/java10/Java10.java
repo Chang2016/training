@@ -14,6 +14,7 @@ public class Java10 {
 
   static Map<Integer, String> varMap() {
     var map = Map.of(1, "lala", 2, "huhu");
+    System.out.println(map.getClass());
     return map;
   }
 
