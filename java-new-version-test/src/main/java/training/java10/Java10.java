@@ -1,5 +1,8 @@
 package training.java10;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +10,17 @@ import java.util.function.Predicate;
 
 public class Java10 {
   private static String name = "";
+
+  void reader() {
+    var sr = new StringReader("Hello");
+    var sw = new StringWriter();
+    try {
+      sr.transferTo(sw);
+      System.out.println("SW: " + sw.toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
   void unmodifiableCollections() {
     String[] words = {"Hello", "World"};
@@ -53,5 +67,6 @@ public class Java10 {
     //java10.varType();
     //java10.lambdaVar();
     java10.unmodifiableCollections();
+    java10.reader();
   }
 }
