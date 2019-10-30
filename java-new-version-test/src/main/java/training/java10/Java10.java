@@ -3,6 +3,12 @@ package training.java10;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +23,19 @@ public class Java10 {
     try {
       sr.transferTo(sw);
       System.out.println("SW: " + sw.toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  void reader2() {
+    try {
+      var values = new byte[] {'A', 'B', 'C', 'D'};
+      var ls = new ByteArrayInputStream(values);
+      var bos = new ByteArrayOutputStream();
+      ls.transferTo(bos);
+      System.out.println(bos.toString());
+      System.out.println(bos.toString(StandardCharsets.UTF_16));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -68,5 +87,6 @@ public class Java10 {
     //java10.lambdaVar();
     java10.unmodifiableCollections();
     java10.reader();
+    java10.reader2();
   }
 }
