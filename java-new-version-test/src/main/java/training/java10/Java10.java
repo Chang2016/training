@@ -19,7 +19,8 @@ public class Java10 {
     words[1] = "Earth";
     //UnsupportedOperationException
     //of.set(1, "Moon");
-    asList.set(1, "Moon");
+    //Ok
+    //asList.set(1, "Moon");
     asList.stream().forEach(System.out::println);
     of.stream().forEach(System.out::println);
   }
